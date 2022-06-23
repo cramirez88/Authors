@@ -42,4 +42,12 @@ module.exports.getOneAuthor = (req, res) => {
   .catch(err => res.status(400).json(err))
 }
 
+// delete an author
+
+module.exports.deleteAuthor = (req, res) => {
+  Author.deleteOne({_id: req.params._id})
+  .then(deletedAuthor => res.json(deletedAuthor))
+  .catch(err => res.status(400).json(err))
+}
+
 
