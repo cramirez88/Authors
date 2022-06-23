@@ -25,3 +25,12 @@ module.exports.getAllAuthors = (request, response) => {
 }
 
 
+// Edit Authors
+
+module.exports.updateAuthor = (request, response) => {
+  Author.findOneAndUpdate({_id: request.params._id}, request.body, {new: true})
+  .then(updatedAuthor => response.json(updatedAuthor))
+  .catch(err => response.json(err))
+}
+
+
