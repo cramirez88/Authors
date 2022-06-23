@@ -34,3 +34,12 @@ module.exports.updateAuthor = (request, response) => {
 }
 
 
+// get one Author
+
+module.exports.getOneAuthor = (req, res) => {
+  Author.findOne({_id: req.params._id})
+  .then(oneAuthor => res.json(oneAuthor))
+  .catch(err => res.status(400).json(err))
+}
+
+
