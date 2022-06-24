@@ -3,14 +3,13 @@ const AuthorSchema = new mongoose.Schema({
     firstName: { type: String,
                 required: [
                   true,
-                  'First Name is required and must be at least 3 characters long'
-                ]
+                  'First Name is required'
+                ],
+                minLength: [3, 'First Name must be at least 3 characters long']
     },
     lastName: { type: String,
-                required: [
-                  true,
-                  'Last name is required and must be at least 3 characters long'
-                ]
+                required: [true, 'Last Name is required'],
+                minLength: [3, 'Last Name must be at least 3 characters']
     }
 }, { timestamps: true });
 module.exports = mongoose.model('Author', AuthorSchema);
