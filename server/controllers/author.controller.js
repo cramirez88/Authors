@@ -30,7 +30,7 @@ module.exports.getAllAuthors = (request, response) => {
 module.exports.updateAuthor = (request, response) => {
   Author.findOneAndUpdate({_id: request.params._id}, request.body, {new: true, runValidators:true})
   .then(updatedAuthor => response.json(updatedAuthor))
-  .catch(err => response.json(err))
+  .catch(err => response.status(400).json(err))
 }
 
 
